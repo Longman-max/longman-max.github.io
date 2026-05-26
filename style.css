@@ -1,372 +1,300 @@
-/* ========== RESET & BASE ========== */
+/* ==========================================================================
+   RESET & VARIABLES
+========================================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --bg: #f9f8f4; /* Warm off-white/cream */
+  --text: #1a1a1a;
+  --muted: #555555;
+  --border: #1a1a1a; /* Dark, crisp borders */
+  --hover-bg: #1a1a1a;
+  --hover-text: #f9f8f4;
+  --shadow: #1a1a1a;
+}
+
+[data-theme="dark"] {
+  --bg: #000000; /* AMOLED Black */
+  --text: #f0f0f0;
+  --muted: #999999;
+  --border: #444444;
+  --hover-bg: #f0f0f0;
+  --hover-text: #000000;
+  --shadow: #444444;
+}
+
+/* ==========================================================================
+   BASE TYPOGRAPHY
+========================================================================== */
 body {
-  font-family: "Space Mono", monospace;
-  background-color: #0b0b0b;
-  color: #eaeaea;
-  display: flex;
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 1.05rem; /* Increased base size */
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#dotsCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
+main {
   width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
 }
 
-/* ========== LAYOUT ========== */
-.layout {
-  /* This is UPDATED to center content */
-  width: 100%;
-  border-left: none;
-  flex-grow: 1; /* Make layout fill the 100vh body */
-  display: flex; /* Turn layout into a flex container */
-  align-items: center; /* Center the .hero-section vertically */
-  justify-content: center; /* Center the .hero-section horizontally */
+a {
+  color: var(--text);
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
-/* ========== HERO SECTION ========== */
-.hero-section {
-  padding: 4rem;
+a:hover {
+  opacity: 0.6;
+}
+
+.mono-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   TOP BAR & BUTTONS
+========================================================================== */
+.topbar {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-.hero-header {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-bottom: 2.5rem;
-  gap: 0.3rem;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.header-left {
-  font-size: 1.8rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: #fff;
-  transition: color 0.3s ease;
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-.header-right {
-  color: #aaa;
-  font-size: 0.95rem;
-  letter-spacing: 0.05rem;
-  transition: color 0.3s ease;
-}
-
-/* ========== SOCIALS & THEME TOGGLE ========== */
-.my-socials {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 30;
+.nav-links {
   display: flex;
   gap: 0.6rem;
   align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.my-socials a,
-.my-socials button {
-  color: inherit;
-  background: transparent;
-  border: none;
+/* Crisp, structured buttons matching the reference */
+.nav-links a, #themeToggle {
+  font-size: 0.85rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.8rem;
   cursor: pointer;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  transition: transform 150ms ease, background-color 150ms ease, color 0.3s ease;
+  transition: all 0.1s ease;
 }
 
-.my-socials a:hover,
-.my-socials button:hover {
-  transform: translateY(-3px);
-  background-color: rgba(255, 255, 255, 0.02);
+.nav-links a:hover, #themeToggle:hover {
+  background: var(--hover-bg);
+  color: var(--hover-text);
+  border-color: var(--hover-bg);
 }
 
-.my-socials img.social-icon {
-  width: 22px;
-  height: 22px;
-  display: block;
-  object-fit: contain;
-  transition: filter 0.3s ease;
+.nav-links a:active, #themeToggle:active {
+  transform: translateY(2px);
 }
 
-.my-socials .theme-icon {
-  width: 26px;
-  height: 26px;
-  display: block;
-  object-fit: contain;
-  transition: filter 0.3s ease;
+/* ==========================================================================
+   TERMINAL BOXES (SECTIONS)
+========================================================================== */
+section {
+  margin-bottom: 2rem;
 }
 
-body:not(.light) .my-socials img {
-  filter: invert(1) grayscale(1) contrast(105%) brightness(1.1);
-}
-body.light .my-socials img {
-  filter: invert(0) grayscale(1) contrast(95%) brightness(0.2);
-}
-body:not(.light) .my-socials .theme-icon {
-  filter: invert(1) grayscale(1) brightness(1.05);
-}
-body.light .my-socials .theme-icon {
-  filter: invert(0) grayscale(1) brightness(0.6);
+.terminal-box {
+  border: 1px solid var(--border);
+  padding: 1.8rem 2rem;
+  background: transparent;
+  margin-bottom: 2rem;
 }
 
-/* ========== IMAGE BORDER ========== */
-.graphic {
+.terminal-box legend {
+  padding: 0 0.75rem;
+  font-style: italic; /* Adding italics to match reference */
+  color: var(--text);
+}
+
+/* ==========================================================================
+   HERO
+========================================================================== */
+.hero-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 3rem 0;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-top: 0.5rem;
 }
 
-.spinning-border {
+.hero-text {
+  flex: 1;
+}
+
+.bio p {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+
+.bio p:last-child {
+  margin-bottom: 0;
+}
+
+/* Enlarged Image */
+.hero-image-container {
+  width: 280px; 
+  height: 360px;
+  flex-shrink: 0;
+  overflow: hidden;
   position: relative;
-  width: clamp(120px, 22vw, 200px);
-  aspect-ratio: 1 / 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border: 1px solid var(--border);
+  background: var(--border);
 }
 
-.spinning-border img {
-  width: calc(100% - 18px);
-  height: calc(100% - 18px);
-  border-radius: 50%;
-  object-fit: cover;
-  z-index: 2;
-  position: relative;
-  filter: grayscale(85%) contrast(95%);
-}
-
-.border-ring {
-  position: absolute;
-  top: 0;
-  left: 0;
+.profile-img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  border: 3px solid transparent;
-  border-top-color: #fff;
-  border-bottom-color: #fff;
-  animation: spin-border 8s linear infinite;
-  z-index: 1;
-  background: none;
-  transition: animation-direction 0.3s ease, border-color 0.3s ease;
-}
-
-.spinning-border:hover .border-ring {
-  animation-direction: reverse;
-}
-
-@keyframes spin-border {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* ========== MAIN CONTENT ========== */
-.main-content {
-  max-width: 600px;
-  margin: 0 auto;
-  color: #bdbdbd;
-  font-size: 1rem;
-  line-height: 1.7;
-  transition: color 0.3s ease;
-}
-
-/* ========== SOCIAL HANDLE TITLES ========== */
-.my-socials a,
-.my-socials button {
-  position: relative;
-}
-
-.my-socials a::before,
-.my-socials button::before {
-  content: attr(data-title);
+  object-fit: cover;
   position: absolute;
-  top: 120%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #f0f0f0;
-  color: #111;
-  font-family: "Space Mono", monospace;
-  font-size: 0.8rem;
+  inset: 0;
+  transition: opacity 0.3s ease;
+}
+
+.img-hover {
+  opacity: 0;
+}
+
+.hero-image-container:hover .img-hover {
+  opacity: 1;
+}
+.hero-image-container:hover .img-default {
+  opacity: 0;
+}
+
+@media (max-width: 720px) {
+  .hero-content {
+    flex-direction: column-reverse;
+  }
+  .hero-image-container {
+    width: 100%;
+    max-width: 320px;
+    height: 400px;
+  }
+  .terminal-box {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* ==========================================================================
+   LISTS & GRIDS (Writing, Projects, Now)
+========================================================================== */
+.list-container {
+  margin-top: 0.5rem;
+}
+
+.list-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.list-item:last-child {
+  margin-bottom: 0;
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-top: 0.5rem;
+}
+
+.project-name {
   font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 6px;
-  white-space: nowrap;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.2s ease, visibility 0.2s ease, top 0.2s ease;
+  font-size: 1.1rem;
+  display: inline-block;
+  margin-bottom: 0.25rem;
 }
 
-.my-socials a::after,
-.my-socials button::after {
-  content: "";
+.project-desc {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.now-list {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.now-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.now-list li:last-child {
+  margin-bottom: 0;
+}
+
+.now-list li::before {
+  content: "→";
   position: absolute;
-  top: calc(120% - 6px);
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-bottom-color: #f0f0f0;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.2s ease, visibility 0.2s ease, top 0.2s ease;
+  left: 0;
+  color: var(--muted);
 }
 
-.my-socials a:hover::before,
-.my-socials button:hover::before {
+/* ==========================================================================
+   CONTACT & FOOTER
+========================================================================== */
+.contact-info {
+  margin-top: 0.5rem;
+}
+
+.email-link {
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.1rem;
+}
+
+.email-link:hover {
+  border-color: var(--text);
   opacity: 1;
-  visibility: visible;
-  top: 130%;
 }
 
-.my-socials a:hover::after,
-.my-socials button:hover::after {
-  opacity: 1;
-  visibility: visible;
-  top: calc(130% - 6px);
+.contact-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
-body.light .my-socials a::before,
-body.light .my-socials button::before {
-  background-color: #1a1a1a;
-  color: #eaeaea;
+.contact-links a {
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
-body.light .my-socials a::after,
-body.light .my-socials button::after {
-  border-bottom-color: #1a1a1a;
-}
-
-/* ========== TOOLTIP FOR HERO IMAGE (CSS BUBBLE - NO IMAGE) ========== */
-.spinning-border::before {
-  content: attr(data-title);
-  position: absolute;
-  top: 0;
-  left: 100%;
-  transform: translate(5px, 0px);
-  background-color: #1a1a1a;
-  border: 2px solid #eaeaea;
-  border-radius: 6px;
-  padding: 8px 12px;
-  min-width: 120px;
-  max-width: 250px;
-  height: auto;
-  line-height: 1.3;
-  font-family: "Comic Sans MS", "Comic Neue", cursive;
-  font-weight: bold;
-  text-transform: uppercase;
+footer {
+  margin-top: 3rem;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.85rem;
-  color: #eaeaea;
-  white-space: normal;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-}
-
-.spinning-border:hover::before {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(10px, -10px);
-}
-
-.spinning-border::after {
-  display: none;
-}
-
-body.light .spinning-border::before {
-  background-color: #f0f0f0;
-  color: #111;
-  border-color: #111;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 900px) {
-  .hero-section {
-    padding: 2rem 1.5rem;
-  }
-  .header-left {
-    font-size: 1.5rem;
-  }
-  .graphic {
-    margin: 2rem 0;
-  }
-  .spinning-border {
-    width: clamp(200px, 55vw, 280px); /* Updated larger size */
-    aspect-ratio: 1 / 1;
-  }
-  .spinning-border img {
-    width: calc(100% - 8px);
-    height: calc(100% - 8px);
-  }
-
-  /* This is the NEW fix for the profile tooltip on mobile */
-  .spinning-border::before {
-    top: -5px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-100%);
-    max-width: 90vw;
-  }
-  .spinning-border:hover::before {
-    transform: translateX(-50%) translateY(-110%);
-  }
-}
-
-/* ========== LIGHT MODE ========== */
-body.light {
-  background-color: #f7f7f7;
-  color: #111;
-}
-
-body.light .header-left {
-  color: #111;
-}
-body.light .header-right {
-  color: #444;
-}
-body.light .main-content {
-  color: #333;
-}
-body.light .border-ring {
-  border-top-color: #111;
-  border-bottom-color: #111;
-  border-right-color: transparent;
-  border-left-color: transparent;
-}
-body.light .my-socials a,
-body.light .my-socials button {
-  color: #333;
+  color: var(--muted);
+  text-align: left;
 }
