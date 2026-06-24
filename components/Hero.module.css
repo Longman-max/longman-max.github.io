@@ -60,8 +60,11 @@
   }
 }
 
-.imageWrap:hover::after {
-  outline-color: var(--accent-hover);
+/* Hover outline — only on devices that support hover */
+@media (hover: hover) {
+  .imageWrap:hover::after {
+    outline-color: var(--accent-hover);
+  }
 }
 
 .image {
@@ -79,29 +82,40 @@
   margin-top: 64px;
 }
 
-/* Mobile */
+/* Mobile — compact two-column, image as quiet top-right presence */
 @media (max-width: 640px) {
   .hero {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    grid-template-columns: 1fr 100px;
+    gap: 24px;
   }
 
-  .imageWrap {
-    width: 100%;
-    max-height: 300px;
-    order: -1;
+  .label {
+    font-size: 10px;
   }
 
-  .image {
-    object-position: top;
+  .headline {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+
+  .bio {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 100%;
   }
 
   .content {
     padding-top: 0;
   }
 
-  .bio {
-    max-width: 100%;
+  .imageWrap {
+    width: 100px;
+    height: 130px;
+    aspect-ratio: auto;
+  }
+
+  .image {
+    object-position: center top;
   }
 
   .divider {
