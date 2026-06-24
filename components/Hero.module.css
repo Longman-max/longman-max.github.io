@@ -45,27 +45,6 @@
   position: relative;
 }
 
-.imageWrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  outline: 2px solid transparent;
-  outline-offset: -2px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .imageWrap::after {
-    transition: outline-color 200ms ease;
-  }
-}
-
-/* Hover outline — only on devices that support hover */
-@media (hover: hover) {
-  .imageWrap:hover::after {
-    outline-color: var(--accent-hover);
-  }
-}
 
 .image {
   width: 100%;

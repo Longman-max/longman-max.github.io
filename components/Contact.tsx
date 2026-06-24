@@ -7,11 +7,12 @@ const socials = [
   { label: 'x', url: 'https://x.com/obasiagbai' },
   { label: 'medium', url: 'https://medium.com/@obasiagbai94' },
   { label: 'substack', url: 'https://substack.com/@obasiagbai' },
+  { label: 'hashnode', url: 'https://hashnode.com/@obasiagbai1' },
 ];
 
 export default function Contact() {
   return (
-    <Section id="contact" label="Contact">
+    <Section id="contact" label="Contact" count="05">
       <a className={s.email} href="mailto:obasiagbai94@gmail.com">
         obasiagbai94@gmail.com
       </a>

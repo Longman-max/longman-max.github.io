@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://longman-max.github.io'),
 
   title: {
-    default: 'Obasi Agbai — AI Engineer & Systems Builder',
+    default: 'Obasi Agbai',
     template: '%s | Obasi Agbai',
   },
 
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://longman-max.github.io',
     siteName: 'Obasi Agbai',
-    title: 'Obasi Agbai — AI Engineer & Systems Builder',
+    title: 'Obasi Agbai',
     description:
       'Building systems that think. ML, NLP, MLOps, and autonomous security — ' +
       'from Lagos, Nigeria.',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Obasi Agbai — AI Engineer & Systems Builder',
+    title: 'Obasi Agbai',
     description:
       'Building systems that think. ML, NLP, MLOps, and autonomous security.',
     images: ['/og.png'],
@@ -81,6 +81,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
+  manifest: '/site.webmanifest',
 };
 
 const jsonLd = {

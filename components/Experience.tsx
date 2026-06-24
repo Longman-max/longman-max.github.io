@@ -24,7 +24,7 @@ const data = [
 
 export default function Experience() {
   return (
-    <Section id="experience" label="Experience" count={String(data.length).padStart(2, '0')}>
+    <Section id="experience" label="Experience" count="01">
       <ul className={s.list}>
         {data.map((item) => (
           <li className={s.item} key={item.name}>

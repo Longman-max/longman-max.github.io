@@ -18,7 +18,7 @@ const data = [
 
 export default function Writing() {
   return (
-    <Section id="writing" label="Writing" count={String(data.length).padStart(2, '0')}>
+    <Section id="writing" label="Writing" count="03">
       <ul className={s.list}>
         {data.map((item) => (
           <li className={s.item} key={item.title}>

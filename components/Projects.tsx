@@ -24,28 +24,33 @@ const data = [
 
 export default function Projects() {
   return (
-    <Section id="projects" label="Projects" count={String(data.length).padStart(2, '0')}>
+    <Section id="projects" label="Projects" count="02">
       <ul className={s.list}>
         {data.map((item) => (
-          <li className={s.item} key={item.name}>
-            <div className={s.header}>
-              <a
-                className={s.name}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {item.name}
-                <span className={s.arrow}>↗</span>
-              </a>
+          <li className={s.projectItem} key={item.name}>
+            <div className={s.projectContent}>
+              <div className={s.header}>
+                <a
+                  className={s.name}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.name}
+                  <span className={s.arrow}>↗</span>
+                </a>
+              </div>
+              <p className={s.desc}>{item.desc}</p>
+              <div className={s.stackTags}>
+                {item.stack.map((t) => (
+                  <span className={s.stackTag} key={t}>
+                    {t}
+                  </span>
+                ))}
+              </div>
             </div>
-            <p className={s.desc}>{item.desc}</p>
-            <div className={s.stackTags}>
-              {item.stack.map((t) => (
-                <span className={s.stackTag} key={t}>
-                  {t}
-                </span>
-              ))}
+            <div className={s.projectImageWrap}>
+              {/* You can place <img /> or next/image here later */}
             </div>
           </li>
         ))}

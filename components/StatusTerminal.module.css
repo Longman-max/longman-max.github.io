@@ -1,0 +1,128 @@
+.terminalContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  padding: 28px 32px;
+  border-radius: 0;
+  font-family: var(--font-mono);
+  overflow-x: auto;
+}
+
+.command {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.brace {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-faint);
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: 140px 16px 1fr;
+  gap: 0;
+  margin: 0;
+  padding: 3px 0;
+  padding-left: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fieldRow {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.key {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.colon {
+  color: var(--text-faint);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.value {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.valueLastUpdated {
+  color: var(--text-faint);
+}
+
+.valueBuilding {
+  color: var(--text);
+}
+
+.valueReading,
+.valueLocation {
+  color: var(--text-muted);
+}
+
+.valueStatus {
+  color: var(--accent-hover);
+}
+
+.cursorRow {
+  margin-top: 16px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: var(--text-muted);
+  animation: blink 1.2s step-end infinite;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.lastSynced {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  text-align: right;
+  margin-top: 12px;
+}
+
+@media (max-width: 640px) {
+  .terminal {
+    padding: 20px 16px;
+  }
+  .fieldRow {
+    grid-template-columns: 100px 12px 1fr;
+    padding-left: 8px;
+  }
+  .command, .brace, .key, .colon, .value {
+    font-size: 12px;
+  }
+}

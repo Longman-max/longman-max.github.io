@@ -27,7 +27,6 @@ export default function Hero() {
           priority
         />
       </div>
-      <hr className={s.divider} />
     </section>
   );
 }
