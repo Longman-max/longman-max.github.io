@@ -20,7 +20,7 @@ export default function Hero() {
       <div className={s.imageWrap}>
         <Image
           className={s.image}
-          src="/images/picture-1.jpeg"
+          src="/images/longman.jpg"
           alt="Obasi Agbai"
           width={220}
           height={293}
