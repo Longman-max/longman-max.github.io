@@ -1,0 +1,82 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav {
+    transition: background-color 150ms ease;
+  }
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px var(--page-pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+}
+
+.link {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .link {
+    transition: color 150ms ease;
+  }
+}
+
+.link:hover {
+  color: var(--accent-hover);
+}
+
+.toggle {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .toggle {
+    transition: border-color 150ms ease;
+  }
+}
+
+.toggle:hover {
+  border-color: var(--accent-hover);
+}
+
+.toggleIcon {
+  width: 14px;
+  height: 14px;
+}

@@ -1,0 +1,40 @@
+.panel {
+  display: flex;
+  border: 1px solid var(--border);
+  background-color: var(--bg-subtle);
+  padding: 32px;
+  gap: 32px;
+}
+
+.sideLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.line {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .panel {
+    padding: 24px;
+    gap: 24px;
+  }
+}

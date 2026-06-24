@@ -1,0 +1,46 @@
+.email {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--text-xl);
+  color: var(--text);
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .email {
+    transition: color 150ms ease;
+  }
+}
+
+.email:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.socials {
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.socialLink {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .socialLink {
+    transition: color 150ms ease;
+  }
+}
+
+.socialLink:hover {
+  color: var(--accent-hover);
+}
+
+.separator {
+  margin: 0 6px;
+  color: var(--text-faint);
+  user-select: none;
+}
