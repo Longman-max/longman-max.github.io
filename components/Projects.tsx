@@ -15,6 +15,7 @@ const data = [
     url: 'https://q-vision-3d.vercel.app/',
     desc: 'Interactive Q-learning visualization built to internalize RL fundamentals hands-on.',
     stack: ['typescript', 'reinforcement-learning'],
+    image: '/images/q-vision-3d.png',
   },
   {
     name: 'RAG — Nigerian Constitution',
