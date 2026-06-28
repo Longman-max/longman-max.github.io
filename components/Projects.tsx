@@ -1,5 +1,6 @@
 import Section from './Section';
 import s from './Entry.module.css';
+import Image from 'next/image';
 
 const data = [
   {
@@ -7,6 +8,7 @@ const data = [
     url: 'https://github.com/Longman-max/Adaptive-Captioning-System',
     desc: 'Captioning system that adapts detail and tone dynamically based on user context and feedback.',
     stack: ['python', 'computer-vision', 'ml'],
+    image: '/images/adaptive-captioning-system.png',
   },
   {
     name: 'RL Visualization',
@@ -50,7 +52,15 @@ export default function Projects() {
               </div>
             </div>
             <div className={s.projectImageWrap}>
-              {/* You can place <img /> or next/image here later */}
+              {item.image && (
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  sizes="(max-width: 640px) 100px, 140px"
+                  style={{ objectFit: 'cover' }}
+                />
+              )}
             </div>
           </li>
         ))}
