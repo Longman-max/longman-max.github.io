@@ -61,6 +61,36 @@
   margin-top: 64px;
 }
 
+.secretWord {
+  position: relative;
+  cursor: default; /* Keep default cursor so it's even harder to find! */
+}
+
+.secretWord::after {
+  content: '🥚 -- .-.. --- .--. ...';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: var(--bg-subtle);
+  color: var(--text);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease, transform 150ms ease;
+  border: 1px solid var(--border);
+  z-index: 10;
+}
+
+.secretWord:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-8px);
+}
+
 /* Mobile — compact two-column, image as quiet top-right presence */
 @media (max-width: 640px) {
   .hero {

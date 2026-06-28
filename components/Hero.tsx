@@ -13,8 +13,11 @@ export default function Hero() {
         </h1>
         <p className={s.bio}>
           CS student at FUTO. Researcher and builder across ML, NLP, and systems
-          infrastructure. Currently: MLOps pipelines, autonomous security, edge
-          inference.
+          infrastructure. Currently:{' '}
+          <span className={s.secretWord}>
+            MLOps
+          </span>{' '}
+          pipelines, autonomous security, edge inference.
         </p>
       </div>
       <div className={s.imageWrap}>

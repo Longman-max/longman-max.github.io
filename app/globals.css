@@ -59,6 +59,32 @@
   --dot-grid: radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
 }
 
+[data-theme='matrix'] {
+  --bg: #000000;
+  --bg-subtle: #001100;
+  --text: #00FF41;
+  --text-muted: #008F11;
+  --text-faint: #003B00;
+  --border: #00FF41;
+  --accent: #00FF41;
+  --accent-hover: #FFFFFF;
+
+  --dot-grid: radial-gradient(circle, rgba(0, 255, 65, 0.4) 1px, transparent 1px);
+}
+
+[data-theme='matrix'] body::before {
+  animation: matrixRain 10s linear infinite;
+}
+
+@keyframes matrixRain {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 1120px; /* 28px * 40 loops seamlessly */
+  }
+}
+
 /* --- Base ----------------------------------------------------------------- */
 html {
   -webkit-font-smoothing: antialiased;
@@ -108,8 +134,7 @@ a {
 }
 
 /* --- Focus ---------------------------------------------------------------- */
-a:focus-visible,
-button:focus-visible {
+a:focus-visible {
   outline: 2px solid var(--accent-hover);
   outline-offset: 2px;
 }

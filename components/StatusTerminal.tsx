@@ -23,7 +23,10 @@ export default function StatusTerminal() {
     })
       .then((r) => {
         if (!r.ok) throw new Error('Not ok');
-        return r.json();
+        return r.text().then(text => {
+          if (!text) throw new Error('Empty response');
+          return JSON.parse(text);
+        });
       })
       .then(setData)
       .catch(() => setData(fallback));
@@ -39,33 +42,33 @@ export default function StatusTerminal() {
           <div className={s.brace}>{"{"}</div>
           
           <div className={s.fieldRow}>
-            <span className={s.key}>"last_updated"</span>
+            <span className={s.key}>&quot;last_updated&quot;</span>
             <span className={s.colon}>:</span>
-            <span className={`${s.value} ${s.valueLastUpdated}`}>"{data.last_updated}",</span>
+            <span className={`${s.value} ${s.valueLastUpdated}`}>&quot;{data.last_updated}&quot;,</span>
           </div>
           
           <div className={s.fieldRow}>
-            <span className={s.key}>"building"</span>
+            <span className={s.key}>&quot;building&quot;</span>
             <span className={s.colon}>:</span>
-            <span className={`${s.value} ${s.valueBuilding}`}>"{data.building}",</span>
+            <span className={`${s.value} ${s.valueBuilding}`}>&quot;{data.building}&quot;,</span>
           </div>
 
           <div className={s.fieldRow}>
-            <span className={s.key}>"reading"</span>
+            <span className={s.key}>&quot;reading&quot;</span>
             <span className={s.colon}>:</span>
-            <span className={`${s.value} ${s.valueReading}`}>"{data.reading}",</span>
+            <span className={`${s.value} ${s.valueReading}`}>&quot;{data.reading}&quot;,</span>
           </div>
 
           <div className={s.fieldRow}>
-            <span className={s.key}>"location"</span>
+            <span className={s.key}>&quot;location&quot;</span>
             <span className={s.colon}>:</span>
-            <span className={`${s.value} ${s.valueLocation}`}>"{data.location}",</span>
+            <span className={`${s.value} ${s.valueLocation}`}>&quot;{data.location}&quot;,</span>
           </div>
 
           <div className={s.fieldRow}>
-            <span className={s.key}>"status"</span>
+            <span className={s.key}>&quot;status&quot;</span>
             <span className={s.colon}>:</span>
-            <span className={`${s.value} ${s.valueStatus}`}>"{data.status}"</span>
+            <span className={`${s.value} ${s.valueStatus}`}>&quot;{data.status}&quot;</span>
           </div>
 
           <div className={s.brace}>{"}"}</div>

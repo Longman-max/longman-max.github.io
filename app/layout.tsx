@@ -1,7 +1,17 @@
 import type { Metadata } from 'next';
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
+import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import MatrixEasterEgg from '../components/MatrixEasterEgg';
+
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://longman-max.github.io'),
@@ -124,7 +134,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -137,6 +147,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+        <MatrixEasterEgg />
         {/* JSON-LD structured data for Google rich results */}
         <script
           type="application/ld+json"
