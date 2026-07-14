@@ -4,9 +4,9 @@ import { useCallback } from 'react';
 import s from './Nav.module.css';
 
 const navLinks = [
-  { label: 'github', url: 'https://github.com/longman-max' },
-  { label: 'linkedin', url: 'https://linkedin.com/in/obasiagbai' },
-  { label: 'x', url: 'https://x.com/obasiagbai' },
+  { label: 'github', url: 'https://github.com/Longman-max' },
+  { label: 'linkedin', url: 'https://www.linkedin.com/in/obasi-agbai/' },
+  { label: 'x', url: 'https://x.com/obasi_agbai' },
 ];
 
 export default function Nav() {

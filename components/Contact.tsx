@@ -3,8 +3,8 @@ import s from './Contact.module.css';
 
 const socials = [
   { label: 'github', url: 'https://github.com/longman-max' },
-  { label: 'linkedin', url: 'https://linkedin.com/in/obasiagbai' },
-  { label: 'x', url: 'https://x.com/obasiagbai' },
+  { label: 'linkedin', url: 'https://linkedin.com/in/obasi-agbai' },
+  { label: 'x', url: 'https://x.com/obasi-agbai' },
   { label: 'medium', url: 'https://medium.com/@obasiagbai94' },
   { label: 'substack', url: 'https://substack.com/@obasiagbai' },
   { label: 'hashnode', url: 'https://hashnode.com/@obasiagbai1' },
