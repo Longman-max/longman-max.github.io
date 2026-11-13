@@ -22,12 +22,13 @@ const data = [
     url: 'https://github.com/longman-max',
     desc: 'Local-first retrieval-augmented generation system for the 1999 Nigerian Constitution.',
     stack: ['python', 'rag', 'nlp'],
+    image: '/images/rag-project.png',
   },
 ];
 
-export default function Projects() {
+export default function Projects({ count }: { count: string }) {
   return (
-    <Section id="projects" label="Projects" count="02">
+    <Section id="projects" label="Projects" count={count}>
       <ul className={s.list}>
         {data.map((item) => (
           <li className={s.projectItem} key={item.name}>

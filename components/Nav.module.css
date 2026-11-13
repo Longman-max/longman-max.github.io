@@ -84,3 +84,11 @@
   height: 14px;
   pointer-events: none;
 }
+
+@media (max-width: 640px) {
+  .nav {
+    position: fixed;
+    width: 100%;
+    left: 0;
+  }
+}

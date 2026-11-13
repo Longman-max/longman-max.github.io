@@ -2,11 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 220px;
   gap: 64px;
-  align-items: start;
+  align-items: center;
 }
 
 .content {
-  padding-top: 8px;
 }
 
 .label {
@@ -19,7 +18,6 @@
 }
 
 .headline {
-  margin-top: 24px;
   font-family: var(--font-sans);
   font-weight: 300;
   font-size: var(--text-3xl);
@@ -38,10 +36,23 @@
   max-width: 400px;
 }
 
+.about {
+  margin-top: 24px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.about p + p {
+  margin-top: 16px;
+}
+
 .imageWrap {
   width: 220px;
   aspect-ratio: 3 / 4;
-  overflow: hidden;
   position: relative;
 }
 
@@ -66,8 +77,8 @@
   cursor: default; /* Keep default cursor so it's even harder to find! */
 }
 
-.secretWord::after {
-  content: '🥚 -- .-.. --- .--. ...';
+.imageWrap::after {
+  content: '🥚 - -.-- .--. . / -- .-.. --- .--. ...';
   position: absolute;
   bottom: 100%;
   left: 50%;
@@ -86,7 +97,7 @@
   z-index: 10;
 }
 
-.secretWord:hover::after {
+.imageWrap:hover::after {
   opacity: 1;
   transform: translateX(-50%) translateY(-8px);
 }
@@ -96,6 +107,7 @@
   .hero {
     grid-template-columns: 1fr 100px;
     gap: 24px;
+    align-items: start;
   }
 
   .label {
@@ -107,7 +119,8 @@
     line-height: 1.1;
   }
 
-  .bio {
+  .bio,
+  .about {
     font-size: 14px;
     line-height: 1.6;
     max-width: 100%;

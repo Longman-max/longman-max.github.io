@@ -92,6 +92,7 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
+  overflow-x: hidden;
 }
 
 body {
@@ -101,6 +102,7 @@ body {
   line-height: 1.65;
   color: var(--text);
   background-color: var(--bg);
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -132,6 +134,12 @@ body::before {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: var(--page-pad-y) var(--page-pad-x);
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding-top: calc(var(--page-pad-y) + 64px);
+  }
 }
 
 /* --- Links ---------------------------------------------------------------- */

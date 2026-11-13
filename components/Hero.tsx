@@ -1,35 +1,42 @@
+'use client';
+
 import Image from 'next/image';
 import s from './Hero.module.css';
 
 export default function Hero() {
-  return (
-    <section className={s.hero} id="hero" aria-label="Introduction">
-      <div className={s.content}>
-        <p className={s.label}>Obasi Agbai — AI Engineer</p>
-        <h1 className={s.headline}>
-          Building systems
-          <br />
-          that think.
-        </h1>
-        <p className={s.bio}>
-          CS student at FUTO. Researcher and builder across ML, NLP, and systems
-          infrastructure. Currently:{' '}
-          <span className={s.secretWord}>
-            MLOps
-          </span>{' '}
-          pipelines, autonomous security, edge inference.
-        </p>
-      </div>
-      <div className={s.imageWrap}>
-        <Image
-          className={s.image}
-          src="/images/longman.jpg"
-          alt="Obasi Agbai"
-          width={220}
-          height={293}
-          priority
-        />
-      </div>
-    </section>
-  );
+    const handleDoubleClick = async () => {
+        try {
+            await navigator.clipboard.writeText('🥚 - -.-- .--. . / -- .-.. --- .--. ...');
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+        }
+    };
+
+    return (
+        <section className={s.hero} id="hero" aria-label="Introduction">
+            <div className={s.content}>
+
+                <h1 className={s.headline}>
+                    Obasi
+                    <br />
+                    Agbai
+                </h1>
+                <div className={s.about}>
+                    <p>
+                        I like building things that genuinely help people. Outside of code, I&apos;m into cars, rockets, and cool, useful tech.
+                    </p>
+                </div>
+            </div>
+            <div className={s.imageWrap} onDoubleClick={handleDoubleClick}>
+                <Image
+                    className={s.image}
+                    src="/images/longman.jpg"
+                    alt="Obasi Agbai"
+                    width={220}
+                    height={293}
+                    priority
+                />
+            </div>
+        </section>
+    );
 }
