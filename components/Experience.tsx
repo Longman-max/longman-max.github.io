@@ -30,7 +30,7 @@ const data: ExperienceItem[] = [
   {
     name: 'Lenor Software Agency',
     url: 'https://lenorsoft.vercel.app/',
-    tag: 'TECHNICAL LEAD',
+    tag: 'FOUNDER & TECHNICAL LEAD',
     desc: 'Led technical direction and engineering delivery across client software projects, from architecture to launch.',
   },
   {

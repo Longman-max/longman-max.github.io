@@ -72,14 +72,19 @@
   text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .name {
-    transition: color 150ms ease;
-  }
+.name:link,
+.name:visited,
+.name:hover,
+.name:active,
+.name:focus {
+  color: var(--text);
+  text-decoration: none;
 }
 
-.name:hover {
-  color: var(--accent-hover);
+@media (prefers-reduced-motion: no-preference) {
+  .name:hover {
+    color: var(--accent-hover);
+  }
 }
 
 .arrow {

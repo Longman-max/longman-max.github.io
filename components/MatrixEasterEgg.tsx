@@ -6,6 +6,16 @@ const SECRET_CODE = 'mlops';
 
 export default function MatrixEasterEgg() {
   const [showToast, setShowToast] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     let keyBuffer = '';
@@ -47,10 +57,12 @@ export default function MatrixEasterEgg() {
           // Turn Matrix mode ON
           html.setAttribute('data-theme', 'matrix');
           
-          // Show the toast!
-          setShowToast(true);
-          clearTimeout(timeoutId);
-          timeoutId = setTimeout(() => setShowToast(false), 3500);
+          // Show the toast only on desktop
+          if (!isMobile) {
+            setShowToast(true);
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => setShowToast(false), 3500);
+          }
         }
 
         // Reset the buffer after triggering
@@ -63,7 +75,9 @@ export default function MatrixEasterEgg() {
       window.removeEventListener('keydown', handleKeyDown);
       clearTimeout(timeoutId);
     };
-  }, []);
+  }, [isMobile]);
+
+  if (isMobile) return null;
 
   return (
     <div

@@ -4,6 +4,41 @@ import Image from 'next/image';
 
 const data = [
   {
+    name: 'tapswitch',
+    url: 'https://github.com/Longman-max/tapswitch',
+    desc: 'A virtual Ethernet switch over UDP, built from scratch to learn how layer 2 works.',
+    stack: ['python', 'networking', 'systems'],
+    image: '/images/tapswitch.png',
+  },
+  {
+    name: 'Deap by Donjed Energy',
+    url: 'https://deap.donjedenergy.com.ng/',
+    desc: 'A campus solar-generator rental platform where students complete KYC, book power units, and pay online.',
+    stack: ['nextjs', 'typescript', 'prisma', 'postgresql', 'paystack'],
+    image: '/images/deap.png',
+  },
+  {
+    name: 'Hexavia Assistant',
+    url: 'https://hexavia.africa/',
+    desc: 'An AI chatbot that provides practical business guidance and strategic insights for sustainable growth.',
+    stack: ['ai', 'chatbot', 'automation', 'business'],
+    image: '/images/hexavia.png',
+  },
+  {
+    name: 'adversarial-ml-detector',
+    url: 'https://github.com/Longman-max/adversarial-ml-detector',
+    desc: 'Detecting adversarial inputs and data poisoning in ML pipelines powered by AWS.',
+    stack: ['cyber security', 'aws', 'python', 'ml'],
+    image: '/images/classifier_demo.gif',
+  },
+  {
+    name: 'Rook',
+    url: '',
+    desc: 'A robotic prototype built to withstand cyberattacks and demonstrate resilient hardware-software systems.',
+    stack: ['robotics', 'cybersecurity', 'embedded systems', 'hardware'],
+    image: '/images/rook.jpg',
+  },
+  {
     name: 'Adaptive Captioning System',
     url: 'https://github.com/Longman-max/Adaptive-Captioning-System',
     desc: 'Captioning system that adapts detail and tone dynamically based on user context and feedback.',
@@ -34,15 +69,19 @@ export default function Projects({ count }: { count: string }) {
           <li className={s.projectItem} key={item.name}>
             <div className={s.projectContent}>
               <div className={s.header}>
-                <a
-                  className={s.name}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.name}
-                  <span className={s.arrow}>↗</span>
-                </a>
+                {item.url ? (
+                  <a
+                    className={s.name}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.name}
+                    <span className={s.arrow}>↗</span>
+                  </a>
+                ) : (
+                  <span className={s.name}>{item.name}</span>
+                )}
               </div>
               <p className={s.desc}>{item.desc}</p>
               <div className={s.stackTags}>

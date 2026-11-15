@@ -148,6 +148,14 @@ a {
   text-decoration: none;
 }
 
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* --- Focus ---------------------------------------------------------------- */
 a:focus-visible {
   outline: 2px solid var(--accent-hover);
