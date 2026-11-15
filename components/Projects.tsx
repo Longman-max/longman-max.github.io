@@ -4,6 +4,13 @@ import Image from 'next/image';
 
 const data = [
   {
+    name: 'Stator',
+    url: '',
+    desc: 'A personal finance dashboard that brings all your financial accounts, spending, and subscriptions into one secure, unified view.',
+    stack: [],
+    image: '/images/stator.png',
+  },
+  {
     name: 'tapswitch',
     url: 'https://github.com/Longman-max/tapswitch',
     desc: 'A virtual Ethernet switch over UDP, built from scratch to learn how layer 2 works.',
