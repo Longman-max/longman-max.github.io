@@ -12,25 +12,32 @@ const data: ExperienceItem[] = [
   {
     name: 'Hexavia',
     url: 'https://hexavia.africa/',
-    tag: 'AUTOMATION',
+    tag: 'AI Engineer',
     desc: 'Developed an automated customer service system that handled customer inquiries and reduced the team\'s manual support workload.',
   },
   {
     name: 'Foodhut',
     url: 'https://foodhut.co/',
-    tag: 'ML · PYTHON',
+    tag: 'AI Engineer',
     desc: 'Built a recommendation engine and AI chatbot that personalised meal discovery, improving user engagement and repeat orders.',
   },
   {
     name: 'Donjed Energy',
     url: 'https://donjedenergy.com.ng/',
-    tag: 'ENERGY TECH',
+    tag: 'Lead Software Engineer',
     desc: 'Built a full-stack e-commerce and inventory system that streamlined operations and gave the team real-time visibility into stock levels.',
   },
   {
     name: 'Lenor Software Agency',
+    url: 'https://lenorsoft.vercel.app/',
     tag: 'TECHNICAL LEAD',
     desc: 'Led technical direction and engineering delivery across client software projects, from architecture to launch.',
+  },
+  {
+    name: 'Plasmid Technologies',
+    url: 'http://plasmid.vercel.app/',
+    tag: 'Founder & Lead AI Engineer',
+    desc: 'Leading a team of researchers focused on improving healthcare with AI.',
   },
 ];
 
