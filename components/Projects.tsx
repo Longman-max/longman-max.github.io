@@ -5,9 +5,9 @@ import Image from 'next/image';
 const data = [
   {
     name: 'Stator',
-    url: '',
-    desc: 'A personal finance dashboard that brings all your financial accounts, spending, and subscriptions into one secure, unified view.',
-    stack: [],
+    url: 'https://usestator.vercel.app/',
+    desc: 'An MVP finance platform for managing accounts, spending, and subscriptions in one place',
+    stack: ['supabase', 'system design', 'fintech', 'mono'],
     image: '/images/stator.png',
   },
   {
