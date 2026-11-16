@@ -82,8 +82,8 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .name:hover {
-    color: var(--accent-hover);
+  .name {
+    transition: color 150ms ease;
   }
 }
 
@@ -143,3 +143,5 @@
     width: 100px;
   }
 }
+
+

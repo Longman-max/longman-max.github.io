@@ -1,6 +1,9 @@
+'use client';
+
 import Section from './Section';
 import s from './Entry.module.css';
 import Image from 'next/image';
+import { useCallback, useState } from 'react';
 
 const data = [
   {
@@ -69,6 +72,17 @@ const data = [
 ];
 
 export default function Projects({ count }: { count: string }) {
+  const [hoveredName, setHoveredName] = useState<string | null>(null);
+
+  const handleLinkClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>) => {
+      if (hoveredName) {
+        e.preventDefault();
+      }
+    },
+    [hoveredName],
+  );
+
   return (
     <Section id="projects" label="Projects" count={count}>
       <ul className={s.list}>
@@ -82,6 +96,7 @@ export default function Projects({ count }: { count: string }) {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={handleLinkClick}
                   >
                     {item.name}
                     <span className={s.arrow}>↗</span>
@@ -99,7 +114,12 @@ export default function Projects({ count }: { count: string }) {
                 ))}
               </div>
             </div>
-            <div className={s.projectImageWrap}>
+            <div
+              className={s.projectImageWrap}
+              onMouseEnter={() => setHoveredName(item.name)}
+              onMouseLeave={() => setHoveredName(null)}
+              onTouchStart={() => setHoveredName(item.name)}
+            >
               {item.image && (
                 <Image
                   src={item.image}

@@ -49,9 +49,7 @@
   }
 }
 
-.link:hover {
-  color: var(--accent-hover);
-}
+
 
 .toggle {
   width: 32px;

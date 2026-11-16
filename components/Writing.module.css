@@ -42,9 +42,7 @@
   }
 }
 
-.title:hover {
-  color: var(--accent-hover);
-}
+
 
 .desc {
   font-family: var(--font-sans);

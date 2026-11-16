@@ -12,10 +12,7 @@
   }
 }
 
-.email:hover {
-  color: var(--accent-hover);
-  text-decoration: underline;
-}
+
 
 .socials {
   margin-top: 20px;
@@ -35,9 +32,7 @@
   }
 }
 
-.socialLink:hover {
-  color: var(--accent-hover);
-}
+
 
 .separator {
   margin: 0 6px;
