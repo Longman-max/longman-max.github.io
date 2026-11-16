@@ -4,9 +4,21 @@ import s from './Writing.module.css';
 const data = [
   {
     year: '2025',
+    title: 'Before ChatGPT, There Was ELIZA: The Machine That Fooled Humans',
+    url: 'https://medium.com/@obasiagbai94/before-chatgpt-there-was-eliza-the-machine-that-fooled-humans-a0a693cc6b21',
+    desc: 'The original chatbot that convinced people it understood them.',
+  },
+  {
+    year: '2025',
     title: 'Semantic Encoding',
     url: 'https://medium.com/@obasiagbai94/semantic-encodings-539bea87351a',
     desc: 'How meaning is compressed and reconstructed inside language models.',
+  },
+  {
+    year: '2025',
+    title: 'Agents',
+    url: 'https://medium.com/@obasiagbai94/agents-25c9a49eb109',
+    desc: 'An exploration of autonomous AI agents and their capabilities.',
   },
   {
     year: '2026',
