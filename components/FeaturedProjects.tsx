@@ -5,6 +5,11 @@ import s from './Entry.module.css';
 
 const data = [
   {
+    name: 'stylize',
+    url: 'https://github.com/Longman-max/stylize',
+    desc: 'Regressor based image stylization.',
+  },
+  {
     name: 'tapswitch',
     url: 'https://github.com/Longman-max/tapswitch',
     desc: 'A virtual Ethernet switch over UDP, written from scratch in Python to understand Layer 2 switching and MAC learning.',

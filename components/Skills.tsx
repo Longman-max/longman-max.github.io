@@ -22,7 +22,9 @@ const data = [
   },
   {
     category: 'Tools & Environment',
-    desc: 'Daily driver is Ubuntu Linux with Neovim, tmux, and zsh.',
+    desc: 'Daily driver is Ubuntu Linux with Neovim, tmux, and bash. See my ',
+    linkText: 'dotfiles',
+    linkUrl: 'https://github.com/Longman-max/dotfiles',
   },
 ];
 
@@ -34,7 +36,19 @@ export default function Skills() {
           <li className={s.skillItem} key={item.category}>
             <span className={s.skillCategory}>{item.category}</span>
             <div className={s.skillContent}>
-              <p className={s.skillDesc}>{item.desc}</p>
+              <p className={s.skillDesc}>
+                {item.desc}
+                {item.linkText && (
+                  <a
+                    className={s.projectLink}
+                    href={item.linkUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.linkText}
+                  </a>
+                )}
+              </p>
             </div>
           </li>
         ))}
