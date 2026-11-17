@@ -21,7 +21,7 @@ export default function Hero() {
                 </h1>
                 <div className={s.about}>
                     <p>
-                        I like building things that genuinely help people. Outside of code, I&apos;m into cars, rockets, and cool, useful tech.
+                        Software engineer and systems programmer. I build web platforms, AI tools, and low-level systems from scratch. Outside of code, I&apos;m into cars, rockets, and practical hardware.
                     </p>
                 </div>
             </div>

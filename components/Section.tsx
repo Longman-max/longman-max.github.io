@@ -9,10 +9,7 @@ interface SectionProps {
 export default function Section({ id, label, children }: SectionProps) {
   return (
     <section className={s.section} id={id} aria-label={label}>
-      <div className={s.marker}>
-        <span className={s.markerLabel}>{label}</span>
-      </div>
-      <hr className={s.markerRule} />
+      <h2 className={s.heading}>{label}</h2>
       <div className={s.body}>{children}</div>
     </section>
   );

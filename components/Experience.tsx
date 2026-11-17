@@ -5,39 +5,45 @@ interface ExperienceItem {
   name: string;
   url?: string;
   tag: string;
+  date: string;
   desc: string;
 }
 
 const data: ExperienceItem[] = [
   {
-    name: 'Hexavia',
-    url: 'https://hexavia.africa/',
-    tag: 'AI Engineer',
-    desc: 'Developed an automated customer service system that handled customer inquiries and reduced the team\'s manual support workload.',
+    name: 'Plasmid Technologies',
+    url: 'http://plasmid.vercel.app/',
+    tag: 'Founder & Lead AI Engineer',
+    date: '2026 - Present',
+    desc: 'Building biomedical research tools and custom LLM workflows for literature discovery, genomics, and medical imaging.',
   },
   {
-    name: 'Foodhut',
-    url: 'https://foodhut.co/',
-    tag: 'AI Engineer',
-    desc: 'Built a recommendation engine and AI chatbot that personalised meal discovery, improving user engagement and repeat orders.',
+    name: 'Lenor Software Agency',
+    url: 'https://lenorsoft.vercel.app/',
+    tag: 'Founder & Technical Lead',
+    date: '2026 - Present',
+    desc: 'Custom web apps, mobile software, and workflow automation for businesses. I handle system architecture, client scoping, and shipping the code.',
   },
   {
     name: 'Donjed Energy',
     url: 'https://donjedenergy.com.ng/',
     tag: 'Lead Software Engineer',
-    desc: 'Built a full-stack e-commerce and inventory system that streamlined operations and gave the team real-time visibility into stock levels.',
+    date: '2025 - Present',
+    desc: 'Built the company\'s e-commerce and inventory management system, plus the Deap solar-generator rental platform and a WhatsApp bot for automated solar quotes.',
   },
   {
-    name: 'Lenor Software Agency',
-    url: 'https://lenorsoft.vercel.app/',
-    tag: 'FOUNDER & TECHNICAL LEAD',
-    desc: 'Led technical direction and engineering delivery across client software projects, from architecture to launch.',
+    name: 'Hexavia',
+    url: 'https://hexavia.africa/',
+    tag: 'AI Engineer',
+    date: '2025 - Present',
+    desc: 'Built an automated customer support system and WhatsApp/web assistant that answers client inquiries and handles routine support tickets.',
   },
   {
-    name: 'Plasmid Technologies',
-    url: 'http://plasmid.vercel.app/',
-    tag: 'Founder & Lead AI Engineer',
-    desc: 'Leading a team of researchers focused on improving healthcare with AI.',
+    name: 'Foodhut',
+    url: 'https://foodhut.co/',
+    tag: 'AI Engineer',
+    date: '2024 - 2026',
+    desc: 'Built a meal recommendation engine and conversational ordering assistant ("Lucy") to help customers discover food and reorder faster.',
   },
 ];
 
@@ -46,23 +52,26 @@ export default function Experience() {
     <Section id="experience" label="Experience">
       <ul className={s.list}>
         {data.map((item) => (
-          <li className={s.item} key={item.name}>
-            <div className={s.header}>
-              {item.url ? (
-                <a
-                  className={s.name}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.name}
-                </a>
-              ) : (
-                <span className={s.name}>{item.name}</span>
-              )}
-              <span className={s.tag}>{item.tag}</span>
+          <li className={s.experienceItem} key={item.name}>
+            <time className={s.experienceDate}>{item.date}</time>
+            <div className={s.experienceContent}>
+              <div className={s.experienceHeader}>
+                {item.url ? (
+                  <a
+                    className={s.experienceName}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <span className={s.experienceName}>{item.name}</span>
+                )}
+                <span className={s.experienceRole}>{item.tag}</span>
+              </div>
+              <p className={s.experienceDesc}>{item.desc}</p>
             </div>
-            <p className={s.desc}>{item.desc}</p>
           </li>
         ))}
       </ul>
