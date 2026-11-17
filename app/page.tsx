@@ -19,8 +19,8 @@ export default function Home() {
       <Nav />
       <main className="page-shell">
         <Hero />
-        {sections.map(({ id, Component }, index) => (
-          <Component key={id} count={String(index + 1).padStart(2, '0')} />
+        {sections.map(({ id, Component }) => (
+          <Component key={id} />
         ))}
         <Footer />
       </main>

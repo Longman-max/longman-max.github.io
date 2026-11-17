@@ -17,9 +17,7 @@ export default function Hero() {
             <div className={s.content}>
 
                 <h1 className={s.headline}>
-                    Obasi
-                    <br />
-                    Agbai
+                    Obasi Agbai
                 </h1>
                 <div className={s.about}>
                     <p>

@@ -28,9 +28,9 @@ const data = [
   },
 ];
 
-export default function Writing({ count }: { count: string }) {
+export default function Writing() {
   return (
-    <Section id="writing" label="Writing" count={count}>
+    <Section id="writing" label="Writing">
       <ul className={s.list}>
         {data.map((item) => (
           <li className={s.item} key={item.title}>

@@ -10,9 +10,9 @@ const socials = [
   { label: 'hashnode', url: 'https://hashnode.com/@obasiagbai1' },
 ];
 
-export default function Contact({ count }: { count: string }) {
+export default function Contact() {
   return (
-    <Section id="contact" label="Contact" count={count}>
+    <Section id="contact" label="Contact">
       <a className={s.email} href="mailto:obasiagbai94@gmail.com">
         obasiagbai94@gmail.com
       </a>

@@ -41,9 +41,9 @@ const data: ExperienceItem[] = [
   },
 ];
 
-export default function Experience({ count }: { count: string }) {
+export default function Experience() {
   return (
-    <Section id="experience" label="Experience" count={count}>
+    <Section id="experience" label="Experience">
       <ul className={s.list}>
         {data.map((item) => (
           <li className={s.item} key={item.name}>
